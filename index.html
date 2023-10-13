@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Casa Thomaz</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="icon" type="image/png" href="favicon.ico">
+</head>
+
+<body>
+	<section class="nav-header">
+		<div class="nav-content">
+			<div class="nav-logo">
+				<a class="text-logo" href="index.html">CASA THOMAZ</a>
+			</div>
+			<div class="nav-menu">
+				<ul>
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="empresa.html">Empresa</a>
+					</li>
+					<li>
+						<a href="localizacao.html">Localização</a>
+					</li>
+					<li>
+						<a href="contato.html">Contato</a>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-menu-icon-and-dropdown">
+				<div class="nav-menu-icon" onclick="dropdown()">
+					<div class="nav-menu-icon-line"></div>
+					<div class="nav-menu-icon-line"></div>
+					<div class="nav-menu-icon-line"></div>
+				</div>
+				<div class="nav-menu-dropdown" id="nav-menu-dropdown">
+					<a href="#">Home</a>
+					<a href="empresa.html">Empresa</a>
+					<a href="localizacao.html">Localização</a>
+					<a href="contato.html">Contato</a>
+				</div>
+			</div>
+		</div>
+		<section class="carrossel">
+			<div class="wrap">
+				<img class="carrossel-img" src="img/wallpaperfelipe.jpg">
+				<img class="carrossel-img" src="img/melhor.jpg">
+				<img class="carrossel-img" src="img/fotopanoramica.JPG">
+
+				<div class="carrossel-legenda">
+					<span class="bolinha-legenda" onclick="definirAtual(1)"></span>
+					<span class="bolinha-legenda" onclick="definirAtual(2)"></span>
+					<span class="bolinha-legenda" onclick="definirAtual(3)"></span>
+				</div>
+			</div>
+		</section>
+	</section>
+	<section class="main">
+		<div class="main-title">
+			<h1 class="main-title-centralized">Nosso lema</h1>
+		</div>
+		<div class="elements">
+			<div class="elements-wrap">
+				<div class="element-lema margin-right">
+					<div class="element-image">
+						<img src="img/tradicao.png">
+					</div>
+					<div class="element-title">Tradição</div>
+					<div class="element-content">Há 20 anos atendendo toda demanda da área continental de São Vicente. Sempre atendendo cada cliente com o respeito que
+						um verdadeiro cliente da Casa Thomaz merece.
+					</div>
+				</div>
+				<div class="element-lema margin-right">
+					<div class="element-image">
+						<img src="img/qualidade.png">
+					</div>
+					<div class="element-title">Qualidade</div>
+					<div class="element-content">Orgulhosa em dizer que se esforça pra manter uma ótima relação entre os fornecedores e a loja, pra sempre entregar produtos
+						de ótima qualidade.
+					</div>
+				</div>
+				<div class="element-lema">
+					<div class="element-image">
+						<img src="img/garantia.png">
+					</div>
+					<div class="element-title">Garantia</div>
+					<div class="element-content">Uma política de honestidade e troca fácil, onde a qualidade dos produtos são garantidas e em caso de qualquer problema,
+						não exitamos para solucioná-lo.
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer footer-texto">
+		<p>Desenvolvido por
+			<a href="https://www.linkedin.com/in/guilherme-barbosa-baa363122/" target="_blank" style="color:#FFF">Guilherme Barbosa Pereira</a>
+		</p>
+	</section>
+	<script>
+		var imgAtual = 1;
+		var imgs = document.getElementsByClassName('carrossel-img');
+		var bolinhas = document.getElementsByClassName('bolinha-legenda');
+		var timeOut;
+		carregarCarrossel(imgAtual);
+		function girarCarrossel(n) {
+			carregarCarrossel(imgAtual += n);
+		}
+
+		function definirAtual(n) {
+			clearTimeout(timeOut);
+			carregarCarrossel(n);
+		}
+
+		function carregarCarrossel(n) {
+			var i;
+			if( n <= imgs.length && n != 0)
+			{
+				imgAtual = n;
+			}
+			else if (n > imgs.length) 
+			{
+				imgAtual = 1;
+			}
+			for (i = 0; i < imgs.length; i++) {
+				imgs[i].style.display = "none";
+			}
+			for (i = 0; i < bolinhas.length; i++) {
+				bolinhas[i].className = bolinhas[i].className.replace(" atual", "");
+			}
+			imgs[imgAtual - 1].style.display = "block";
+			bolinhas[imgAtual - 1].className += " atual";
+			console.log("rodei");
+			timeOut = setTimeout(incrementar, 6000);
+		}
+
+		function incrementar() {
+			imgAtual++;
+			carregarCarrossel(imgAtual);
+		}
+
+		function dropdown() {
+			var dropdown = document.getElementById('nav-menu-dropdown').style.display;
+			if (dropdown == "block") {
+				document.getElementById('nav-menu-dropdown').style.display = "none";
+			}
+			else {
+				document.getElementById('nav-menu-dropdown').style.display = "block";
+			}
+		}
+	</script>
+</body>
+
+</html>

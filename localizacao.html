@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Localização</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="icon" type="image/png" href="favicon.ico">
+</head>
+
+<body>
+	<div class="nav-content">
+		<div class="nav-logo">
+			<a class="text-logo" href="index.html">CASA THOMAZ</a>
+		</div>
+		<div class="nav-menu">
+			<ul>
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="empresa.html">Empresa</a>
+				</li>
+				<li>
+					<a href="#">Localização</a>
+				</li>
+				<li>
+					<a href="contato.html">Contato</a>
+				</li>
+			</ul>
+		</div>
+		<div class="nav-menu-icon-and-dropdown">
+			<div class="nav-menu-icon" onclick="dropdown()">
+				<div class="nav-menu-icon-line "></div>
+				<div class="nav-menu-icon-line show "></div>
+				<div class="nav-menu-icon-line show"></div>
+			</div>
+			<div class="nav-menu-dropdown" id="nav-menu-dropdown">
+				<a href="index.html">Home</a>
+				<a href="empresa.html">Empresa</a>
+				<a href="#">Localização</a>
+				<a href="contato.html">Contato </a>
+			</div>
+		</div>
+	</div>
+	<section class="main">
+		<h1 class="main-title">Onde estamos?</h1>
+		<div id="map" class="map">
+		</div>
+	</section>
+	<section class="footer footer-texto">
+		<p>Desenvolvido por
+			<a href="https://www.linkedin.com/in/guilherme-barbosa-baa363122/" target="_blank" style="color:#FFF">Guilherme Barbosa Pereira</a>
+		</p>
+	</section>
+	<script>
+		function dropdown() {
+			var dropdown = document.getElementById('nav-menu-dropdown').style.display;
+			if (dropdown == "block") {
+				document.getElementById('nav-menu-dropdown').style.display = "none";
+			}
+			else {
+				document.getElementById('nav-menu-dropdown').style.display = "block";
+			}
+		}
+
+		function myMap() {
+			var mapCanvas = document.getElementById('map');
+			var mapCenter = new google.maps.LatLng(-23.983736, -46.487380);
+			var mapOptions = { center: mapCenter, zoom: 17 };
+
+			var map = new google.maps.Map(mapCanvas, mapOptions);
+
+			var marker = new google.maps.Marker({
+				position: mapCenter,
+				animation: google.maps.Animation.BOUNCE
+			});
+			marker.setMap(map);
+
+
+
+		}
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS2ncdfO0m7Pk9_z51oaRCwXm9dkYpv3A&callback=myMap">
+	</script>
+</body>

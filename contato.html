@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Contato</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="icon" type="image/png" href="favicon.ico">
+</head>
+
+<body>
+	<div class="nav-content">
+		<div class="nav-logo">
+			<a class="text-logo" href="index.html">CASA THOMAZ</a>
+		</div>
+		<div class="nav-menu">
+			<ul>
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="empresa.html">Empresa</a>
+				</li>
+				<li>
+					<a href="localizacao.html">Localização</a>
+				</li>
+				<li>
+					<a href="#">Contato</a>
+				</li>
+			</ul>
+		</div>
+		<div class="nav-menu-icon-and-dropdown">
+			<div class="nav-menu-icon" onclick="dropdown()">
+				<div class="nav-menu-icon-line "></div>
+				<div class="nav-menu-icon-line show "></div>
+				<div class="nav-menu-icon-line show"></div>
+			</div>
+			<div class="nav-menu-dropdown" id="nav-menu-dropdown">
+				<a href="index.html">Home</a>
+				<a href="empresa.html">Empresa</a>
+				<a href="localizacao.html">Localização</a>
+				<a href="#">Contato </a>
+			</div>
+		</div>
+	</div>
+	<section class="main">
+		<h1 class="main-title">Quer falar com a gente? </h1>
+		<form id="formcontato" class="form-contato" method="POST" action="http://form.ultramail.com.br/">
+			<label>Assunto</label>
+			<input type="text" id="assunto" class="campo" placeholder="Assunto da mensagem" name="assunto" required>
+
+			<label>Nome</label>
+			<input type="text" id="nome" class="campo" placeholder="Seu nome completo" maxlength="100" name="name" required>
+
+			<label>Email</label>
+			<input type="text" id="email" class="campo" placeholder="Endereço de e-mail para resposta" maxlength="75" name="email" required>
+
+			<label>Mensagem</label>
+			<textarea type="text" id="mensagem" class="campo textarea" rows="9" placeholder="Sua mensagem aqui" maxlength="350" name="mensagem"
+			 required></textarea>
+
+			<INPUT TYPE="hidden" NAME="key" VALUE="eJwBwgA9/4bh9FlgRU5K832tHY/fNto9Uf7In29gUUlvuZzP8SctRm9ybVVsdHJhTWFpbAkXAjZpRDNFTDCCc3pDl+TVe4e3Oc5xJl24I1S44KKpP0NKD+zm8ONdmLR5EhPhzbNqb+lv6zHXlMVG+knE+Xa+cNqL631MO8NbtXsz2zBapgbiptaqIeRVourE3r6jkRoyCWNagnwsDZE8QbJP6/3H13aEJHnxt54Wibyy0j95evyyFpbDCN6WeakRg5C9vyC6tcD+v21kKQ==">
+
+
+			<INPUT TYPE="hidden" NAME="redirect" VALUE="http://casathomaz.com.br/resposta.html">
+			<input type="submit" id="btn_enviar" value="Enviar">
+		</form>
+	</section>
+	<section class="footer footer-texto">
+		<p>Desenvolvido por
+			<a href="https://www.linkedin.com/in/guilherme-barbosa-baa363122/" target="_blank" style="color:#FFF">Guilherme Barbosa Pereira</a>
+		</p>
+	</section>
+	<script>
+		function dropdown() {
+			var dropdown = document.getElementById('nav-menu-dropdown').style.display;
+			if (dropdown == "block") {
+				document.getElementById('nav-menu-dropdown').style.display = "none";
+			}
+			else {
+				document.getElementById('nav-menu-dropdown').style.display = "block";
+			}
+		}
+
+		$('form').submit(function () {
+			var assunto, nome, email, mensagem, i, campos, vazio;
+			assunto = $.trim($('assunto').val());
+			nome = $.trim($('nome').val());
+			email = $.trim($('email').val());
+			mensagem = $.trim($('mensagem'));
+			campos.push(assunto);
+			campos.push(nome);
+			campos.push(email);
+			campos.push(mensagem);
+			vazio = 0;
+			for (i = 0; i < campos.length(); i++) {
+				if (campos[i] == '') {
+					vazio = 1;
+					break;
+				}
+			}
+			if (vazio === 1) {
+				alert("Preencha todos os campos corretamente");
+				return false;
+			}
+			else {
+				return true;
+			}
+		});
+	</script>
+</body>
+
+</html>

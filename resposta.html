@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<title>Mensagem</title>
+	</head>
+	<style>
+		*{
+			font-family:'Roboto';
+		}
+		html,body{
+			margin:0;
+			padding:0;
+			height:100%;
+		}
+		form{
+			position:relative;
+			text-align:center;
+		}
+		.btn-enviado{
+			width:300px;
+			padding:15px 15px;
+			position:absolute;			
+			left:50%;
+			transform:translate(-50%);
+			display:block;
+			background-color:#3fc33f;
+			border-color:#4cae4c;
+			color:#FFF;
+			margin-top:10px;
+			font-size:20px;
+			cursor:pointer;
+		}
+		
+		.btn-enviado:hover{
+			background-color:#36af36;
+		}
+	</style>
+	<body>
+		<form action="index.html">
+			<h1 style="font-size:2rem">Mensagem enviada com sucesso!</h1>
+			<button type="submit" class="btn-enviado">Voltar</button>
+		</form>
+	</body>
+	<script>
+		$(document).ready(function(){
+			 
+		});
+	</script>
+</html>
